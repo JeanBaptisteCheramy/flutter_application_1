@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/calc_button.dart';
 
-List values = [
+final List<String> values = [
   "AC",
   "%",
   "√",
@@ -28,35 +29,20 @@ class Numbers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 155, 190, 151),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(10),
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        crossAxisCount: 4,
-        children: values.map((value) {
-          return Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: const Color.fromARGB(255, 206, 233, 201),
-              boxShadow: const [
-                BoxShadow(
-                    color: Color.fromARGB(108, 0, 0, 0),
-                    spreadRadius: 1,
-                    blurRadius: 2),
-              ],
-            ),
-            child: Center(
-              child: Text(value,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 24)),
-            ),
-          );
-        }).toList(),
-      ),
-    );
+    return SizedBox(
+        height: 600,
+        child: GridView(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            mainAxisSpacing: 10.0,
+            crossAxisSpacing: 10.0,
+            childAspectRatio: 1.0,
+          ),
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          children: values.map((value) {
+            return CalcButton(value);
+          }).toList(),
+        ));
   }
 }

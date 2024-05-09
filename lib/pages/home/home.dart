@@ -23,17 +23,7 @@ class HomePage extends StatelessWidget {
           )),
         ),
       ),
-      body: GridView.count(
-        primary: false,
-        padding: const EdgeInsets.all(10),
-        crossAxisSpacing: 5,
-        mainAxisSpacing: 5,
-        crossAxisCount: 1,
-        children: const <Widget>[
-          SizedBox(height: 100, child: Display()),
-          Numbers()
-        ],
-      ),
+      body: const Column(children: <Widget>[Display('test screen'), Numbers()]),
     );
   }
 }
