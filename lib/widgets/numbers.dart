@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/calc_button.dart';
 
-final List<String> values = [
+final List<dynamic> values = [
   "AC",
   "%",
   "√",
   "/",
-  "1",
-  "2",
-  "3",
+  1,
+  2,
+  3,
   "x",
-  "4",
-  "5",
-  "6",
+  4,
+  5,
+  6,
   "-",
-  "7",
-  "8",
-  "9",
+  7,
+  8,
+  9,
   "+",
   "<",
-  "0",
+  0,
   ",",
   "="
 ];

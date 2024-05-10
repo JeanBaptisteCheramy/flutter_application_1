@@ -5,20 +5,22 @@ var logger = Logger();
 
 class CalcButton extends StatelessWidget {
   const CalcButton(this.data, {super.key});
-  final String data;
+  final dynamic data;
 
   void test() {
     logger.d(data);
   }
 
-  Color handleColor(String data) {
-    switch (data) {
-      case "0" || "1" || "2" || "3" || "4" || "5" || "6" || "7" || "8" || "9":
+  Color handleColor(dynamic data) {
+    switch (data.runtimeType) {
+      case int:
         return const Color.fromARGB(255, 255, 254, 245);
-      case "AC" || "<" || "=":
-        return const Color.fromARGB(255, 69, 94, 64);
-      case "%" || "√" || "/" || "x" || "-" || "+" || ",":
-        return const Color.fromARGB(255, 180, 176, 100);
+      case String:
+        if (data == "AC" || data == "<" || data == "=") {
+          return const Color.fromARGB(255, 89, 115, 84);
+        } else {
+          return const Color.fromARGB(255, 180, 176, 100);
+        }
       default:
         return const Color.fromARGB(255, 255, 254, 245);
     }
@@ -29,10 +31,14 @@ class CalcButton extends StatelessWidget {
     return SizedBox(
         height: 50,
         child: ElevatedButton(
-            onPressed: test,
-            style: ButtonStyle(
-                backgroundColor:
-                    MaterialStatePropertyAll<Color>(handleColor(data))),
-            child: Text(data)));
+          onPressed: test,
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStatePropertyAll<Color>(handleColor(data))),
+          child: Text(data.toString(),
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                  fontWeight: FontWeight.w400)),
+        ));
   }
 }
