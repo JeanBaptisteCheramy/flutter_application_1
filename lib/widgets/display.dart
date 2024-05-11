@@ -16,7 +16,7 @@ class Display extends ConsumerWidget {
         borderRadius: BorderRadius.circular(10),
         color: const Color.fromARGB(255, 247, 255, 246),
       ),
-      child: Text(ref.watch(calculationStore),
+      child: Text(ref.watch(calculationStore).displayText,
           style: Theme.of(context)
               .textTheme
               .headlineMedium!

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/store/calculation_store.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/web.dart';
 
 var logger = Logger();
 
-class CalcButton extends StatelessWidget {
+class CalcButton extends ConsumerWidget {
   const CalcButton(this.data, {super.key});
   final dynamic data;
-
-  void test() {
-    logger.d(data);
-  }
 
   Color handleColor(dynamic data) {
     switch (data.runtimeType) {
@@ -27,11 +25,14 @@ class CalcButton extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
         height: 50,
         child: ElevatedButton(
-          onPressed: test,
+          onPressed: () {
+            String ff = data.toString();
+            ref.read(calculationStore.notifier).display(ff);
+          },
           style: ButtonStyle(
               backgroundColor:
                   MaterialStatePropertyAll<Color>(handleColor(data))),
