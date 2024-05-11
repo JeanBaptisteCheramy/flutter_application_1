@@ -9,7 +9,7 @@ final List<dynamic> values = [
   1,
   2,
   3,
-  "x",
+  "*",
   4,
   5,
   6,
@@ -20,7 +20,7 @@ final List<dynamic> values = [
   "+",
   "<",
   0,
-  ",",
+  ".",
   "="
 ];
 

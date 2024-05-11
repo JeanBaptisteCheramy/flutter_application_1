@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/services/services.dart';
 import 'package:flutter_application_1/store/calculation_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/web.dart';
+// import 'package:logger/web.dart';
 
-var logger = Logger();
+// var logger = Logger();
 
 class CalcButton extends ConsumerWidget {
   const CalcButton(this.data, {super.key});
@@ -30,8 +31,16 @@ class CalcButton extends ConsumerWidget {
         height: 50,
         child: ElevatedButton(
           onPressed: () {
-            String ff = data.toString();
-            ref.read(calculationStore.notifier).display(ff);
+            logger.d(data);
+            if (data == 'AC') {
+              ref.read(calculationStore.notifier).set("");
+            } else if (data == "=") {
+              String result =
+                  calculate(ref.watch(calculationStore.notifier).displayText);
+              ref.read(calculationStore.notifier).set(result);
+            } else {
+              ref.read(calculationStore.notifier).display(data.toString());
+            }
           },
           style: ButtonStyle(
               backgroundColor:

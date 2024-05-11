@@ -7,4 +7,9 @@ class CalcModel extends ChangeNotifier {
     displayText += whatever;
     notifyListeners();
   }
+
+  void set(String arg) {
+    displayText = arg;
+    notifyListeners();
+  }
 }
