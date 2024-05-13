@@ -18,7 +18,6 @@ final List<dynamic> values = [
   8,
   9,
   "+",
-  "<",
   0,
   ".",
   "="
