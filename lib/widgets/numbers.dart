@@ -3,8 +3,8 @@ import 'package:flutter_application_1/widgets/calc_button.dart';
 
 final List<dynamic> values = [
   "AC",
+  "^",
   "%",
-  "√",
   "/",
   1,
   2,
@@ -18,6 +18,7 @@ final List<dynamic> values = [
   8,
   9,
   "+",
+  "del",
   0,
   ".",
   "="
