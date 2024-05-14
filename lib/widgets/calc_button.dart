@@ -17,6 +17,8 @@ class CalcButton extends ConsumerWidget {
       case String:
         if (data == "AC" || data == "<" || data == "=") {
           return const Color.fromARGB(255, 89, 115, 84);
+        } else if (data == "del") {
+          return const Color.fromARGB(255, 174, 78, 18);
         } else {
           return const Color.fromARGB(255, 180, 176, 100);
         }
