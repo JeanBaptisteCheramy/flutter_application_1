@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/services.dart';
 import 'package:flutter_application_1/store/calculation_store.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:logger/web.dart';
-
-// var logger = Logger();
 
 class CalcButton extends ConsumerWidget {
   const CalcButton(this.data, {super.key});
@@ -33,13 +30,14 @@ class CalcButton extends ConsumerWidget {
         height: 50,
         child: ElevatedButton(
           onPressed: () {
-            logger.d(data);
             if (data == 'AC') {
               ref.read(calculationStore.notifier).set("");
             } else if (data == "=") {
               String result =
                   calculate(ref.watch(calculationStore.notifier).displayText);
               ref.read(calculationStore.notifier).set(result);
+            } else if (data == "del") {
+              ref.read(calculationStore.notifier).delete();
             } else {
               ref.read(calculationStore.notifier).display(data.toString());
             }

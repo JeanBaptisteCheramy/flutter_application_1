@@ -3,7 +3,6 @@ import 'package:logger/web.dart';
 var logger = Logger();
 
 String calculate(String data) {
-  logger.d(data);
   RegExp regex = RegExp(r'\d+(\.\d+)?|\+|\-|\*|\/');
   List<String> list =
       regex.allMatches(data).map((match) => match.group(0)!).toList();
@@ -29,6 +28,16 @@ String calculate(String data) {
         break;
     }
   }
-
+  checkDotZero(result.toString());
   return result.toString();
+}
+
+bool checkDotZero(String data) {
+  RegExp reg = RegExp(r'\.0');
+  var match = reg.stringMatch(data);
+  if (match == '.0') {
+    return true;
+  } else {
+    return false;
+  }
 }
