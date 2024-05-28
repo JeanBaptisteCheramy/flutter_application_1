@@ -5,7 +5,7 @@ https://github.com/JeanBaptisteCheramy
 If you are a recruiter, feel free to contact me via LinkedIn. I am always optimistic about engaging in discussions and open to new opportunities.
 https://www.linkedin.com/in/jean-baptiste-ch%C3%A9ramy/
 
-# Lorcana-back
+# flutter_application_1
 
 
 This is my very first Flutter project, a calculator app. I am self-learning by conducting research on the internet. I work using the documentation and all possible resources to enhance my skills on a daily basis.
